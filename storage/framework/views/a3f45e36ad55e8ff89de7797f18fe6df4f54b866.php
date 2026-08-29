@@ -86,6 +86,54 @@
     <?php echo $__env->make('frontend.slider.slider', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- Slider Section End -->
 
+    <!-- Section: Safe & Unsafe Medicine Verification Hub -->
+    <section class="py-4 position-relative" style="background: linear-gradient(135deg, #064e3b 0%, #0f766e 100%); margin-top: -20px; z-index: 10; border-bottom: 4px solid #10b981;">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-lg-7 text-white mb-3 mb-lg-0">
+                    <span class="badge badge-light text-success font-weight-bold px-3 py-1 rounded-pill mb-2">
+                        <i class="fa fa-shield-alt text-success mr-1"></i> <?php if(session()->get('language')=='bangla'): ?> ঔষধ নিরাপত্তা ও যাচাইকরণ <?php else: ?> MEDICINE SAFETY &amp; AUTHENTICITY <?php endif; ?>
+                    </span>
+                    <h3 class="font-weight-bold text-white mb-2" style="font-size: 26px;">
+                        <?php if(session()->get('language')=='bangla'): ?>
+                            আসল ও নকল ঔষধ যাচাই করুন
+                        <?php else: ?>
+                            Verify Safe vs. Counterfeit Medicines
+                        <?php endif; ?>
+                    </h3>
+                    <p class="text-white-50 font-14 mb-3" style="color: #e2e8f0 !important;">
+                        <?php if(session()->get('language')=='bangla'): ?>
+                            DGDA নিবন্ধিত ঔষধের জেনেরিক তথ্য, প্রস্তুতকারক এবং আসল ও নকল প্যাকেজিংয়ের চাক্ষুষ তুলনা দেখে সুরক্ষিত থাকুন।
+                        <?php else: ?>
+                            Search Bangladesh medicine catalog, inspect genuine packaging features, and check reported fake drug alerts.
+                        <?php endif; ?>
+                    </p>
+
+                    <form action="<?php echo e(route('medicines.index')); ?>" method="GET" class="d-flex max-width-600 bg-white rounded-pill p-1 shadow">
+                        <input type="text" name="search" class="form-control border-0 rounded-pill px-3 font-14" placeholder="<?php if(session()->get('language')=='bangla'): ?> ঔষধের নাম দিয়ে খুঁজুন... (e.g. Napa, Seclo, Sergel) <?php else: ?> Search medicine brand or generic... <?php endif; ?>" style="box-shadow: none;">
+                        <button type="submit" class="btn btn-success rounded-pill px-4 font-weight-bold text-white" style="background: #10b981; border: none;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="col-lg-5 text-lg-right">
+                    <div class="d-flex flex-column flex-sm-row justify-content-lg-end gap-2">
+                        <a href="<?php echo e(route('medicines.index')); ?>" class="btn btn-light text-dark font-weight-bold px-4 py-2 rounded-pill shadow-sm mb-2 mb-sm-0 mr-sm-2">
+                            <i class="fa fa-pills text-success mr-1"></i> <?php if(session()->get('language')=='bangla'): ?> ঔষধ তালিকা <?php else: ?> View Medicines <?php endif; ?>
+                        </a>
+                        <a href="<?php echo e(route('medicines.index', ['status' => 'unsafe'])); ?>" class="btn btn-danger font-weight-bold px-4 py-2 rounded-pill shadow-sm mb-2 mb-sm-0 mr-sm-2">
+                            <i class="fa fa-exclamation-triangle mr-1"></i> <?php if(session()->get('language')=='bangla'): ?> নকল ঔষধ সতর্কতা <?php else: ?> Fake Drug Alerts <?php endif; ?>
+                        </a>
+                        <a href="<?php echo e(route('unsafe.medicine.report')); ?>" class="btn btn-outline-light font-weight-bold px-3 py-2 rounded-pill">
+                            <i class="fa fa-bullhorn mr-1"></i> <?php if(session()->get('language')=='bangla'): ?> অভিযোগ <?php else: ?> Report <?php endif; ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section: About -->
     
 

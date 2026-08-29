@@ -67,9 +67,7 @@
               </li>
               <li class="<?php echo e(Request()->is('about_menu')? 'active':''); ?>"><a href="<?php echo e(route('about.menu')); ?>"><?php if(session()->get('language')=='bangla'): ?> আমাদের সম্পর্কে <?php elseif(session()->get('language')=='arabic'): ?> معلومات عنا <?php else: ?> About Us <?php endif; ?></a>
               </li>
-              <?php
-                $categories = App\Models\Category::get();
-              ?>
+              <li class="<?php echo e(Request()->is('medicines*')? 'active':''); ?>"><a href="<?php echo e(route('medicines.index')); ?>"><?php if(session()->get('language')=='bangla'): ?> ঔষধ যাচাই <?php else: ?> Safe Medicines <?php endif; ?> </a></li>
 
               <li class="<?php echo e(Request()->is('unsafe-medicine-report')? 'active':''); ?>"><a href="<?php echo e(route('unsafe.medicine.report')); ?>"><?php if(session()->get('language')=='bangla'): ?> মেডিসিন রিপোর্ট <?php else: ?> Unsafe Medicine Report <?php endif; ?> </a></li>
 
